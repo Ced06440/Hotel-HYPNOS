@@ -6,28 +6,25 @@
 
 {% block content %}
     
-{% for hotel in hotel %} 
-        
 
 <h1 class="text-center">Paris</h1>
 
-<h2 class="text-center">Bienvenu a l'hotel {{hotel.name}}, située au {{hotel.adress}} à {{hotel.city}}.</h2>
+<h2 class="text-center">Bienvenu a l'hotel , située au  à .</h2>
 
 <h3 class="text-center">Notre hotel vous propose différentes suite</h3>
 
-{% for rooms in room %}
+
 <div class="row">
     <div class="room-item col-4">
-        <a href=""><h3> {{rooms.name}} </h3></a>
-        <img src="/assets/{{rooms.image}}" alt="" class="img-thumbnail" style='width : 400px'>
-        <p> {{rooms.description}} </p>
+        <a href=""><h3>  </h3></a>
+        <img src="/assets/" alt="" class="img-thumbnail" style='width : 400px'>
+        <p>  </p>
         <div>
-        <span class='me-3'>{{(rooms.price / 100) | number_format(2, ',' , '.' )}} €</span>
+        <span class='me-3'>€</span>
         <button type='button' class='btn btn-primary '>Reserver votre suite</button>    
         </div>
     </div>
 </div>
 <hr>
 
-{% endfor %} {% endfor %}
 {% endblock %}

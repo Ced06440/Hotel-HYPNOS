@@ -18,7 +18,7 @@ Vous étes connecté en tant que {{app.user.email}}<br/>
 {% endif %}
 
 {% if is_granted('ROLE_MANAGER_CANNES') %}
-<a href="">Vous étes manager de hotel, acceder a votre interface</a>
+<a href="/managerCannes">Vous étes manager de hotel, acceder a votre interface</a>
 {% endif %}
 
 {% if is_granted('ROLE_MANAGER_MANDELIEU') %}

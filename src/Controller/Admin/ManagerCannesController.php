@@ -2,7 +2,7 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\RoomsParis;
+use App\Entity\RoomsCannes;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -10,26 +10,25 @@ use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class ManagerParisController extends AbstractDashboardController
+class ManagerCannesController extends AbstractDashboardController
 {
     public function __construct(
         private AdminUrlGenerator $adminUrlGenerator)
     {
         
     }
-
-
-    #[Route('/managerParis', name: 'Manager_Paris')]
+    
+    #[Route('/managerCannes', name: 'Manager_Cannes')]
     public function index(): Response
     {
-        $url = $this->adminUrlGenerator->setController(RoomsCrudController::class)->generateUrl();
+        $url = $this->adminUrlGenerator->setController(RoomsCannesCrudController::class)->generateUrl();
 
         return $this->redirect($url);
 
         // Option 1. You can make your dashboard redirect to some common page of your backend
-        
-        //$adminUrlGenerator = $this->container->get(AdminUrlGenerator::class);
-        //return $this->redirect($adminUrlGenerator->setController(OneOfYourCrudController::class)->generateUrl());
+        //
+        // $adminUrlGenerator = $this->container->get(AdminUrlGenerator::class);
+        // return $this->redirect($adminUrlGenerator->setController(OneOfYourCrudController::class)->generateUrl());
 
         // Option 2. You can make your dashboard redirect to different pages depending on the user
         //
@@ -46,12 +45,12 @@ class ManagerParisController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('Hypnos PARIS');
+            ->setTitle('Hypnos CANNES');
     }
 
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
-        yield MenuItem::linkToCrud('Chambres', 'fas fa-list', RoomsParis::class);
+        yield MenuItem::linkToCrud('The Label', 'fas fa-list', RoomsCannes::class);
     }
 }

@@ -2,13 +2,14 @@
 
 namespace App\Controller;
 
-use App\Entity\RoomsParis;
+use App\Entity\Hotel;
+use App\Entity\RoomsCannes;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class ParisController extends AbstractController
+class CannesController extends AbstractController
 {
     private $entityManager;
 
@@ -17,14 +18,14 @@ class ParisController extends AbstractController
         $this->entityManager = $entityManager;
     }
 
-    #[Route('/paris', name: 'app_paris')]
+    #[Route('/cannes', name: 'app_cannes')]
     public function index(): Response
     {
-        $roomParis = $this->entityManager->getRepository(RoomsParis::class)->findAll();
+        $roomCannes = $this->entityManager->getRepository(RoomsCannes::class)->findAll();
         
-        return $this->render('paris/index.html.twig', [
+        return $this->render('cannes/index.html.twig', [
 
-            'room' => $roomParis
+            'room' => $roomCannes
         ]);
     }
 }

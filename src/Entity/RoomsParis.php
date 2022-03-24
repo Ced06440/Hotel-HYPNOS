@@ -2,11 +2,11 @@
 
 namespace App\Entity;
 
-use App\Repository\RoomsRepository;
+use App\Repository\RoomsParisRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: RoomsRepository::class)]
-class Rooms
+#[ORM\Entity(repositoryClass: RoomsParisRepository::class)]
+class RoomsParis
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -22,7 +22,7 @@ class Rooms
     #[ORM\Column(type: 'text')]
     private $description;
 
-    #[ORM\Column(type: 'string', length: 255)]
+    #[ORM\Column(type: 'integer')]
     private $price;
 
     public function getId(): ?int
@@ -66,12 +66,12 @@ class Rooms
         return $this;
     }
 
-    public function getPrice(): ?string
+    public function getPrice(): ?int
     {
         return $this->price;
     }
 
-    public function setPrice(string $price): self
+    public function setPrice(int $price): self
     {
         $this->price = $price;
 

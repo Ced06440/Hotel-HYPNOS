@@ -39,7 +39,7 @@ security:
     access_control:
         - { path: ^/admin, roles: ROLE_ADMIN }
         - { path: ^/managerParis, roles: ROLE_MANAGER_PARIS }
-        # - { path: ^/managerParis, roles: ROLE_MANAGER_PARIS }
+        - { path: ^/managerCannes, roles: ROLE_MANAGER_CANNES }
         # - { path: ^/managerParis, roles: ROLE_MANAGER_PARIS }
         # - { path: ^/managerParis, roles: ROLE_MANAGER_PARIS }
         # - { path: ^/managerParis, roles: ROLE_MANAGER_PARIS }

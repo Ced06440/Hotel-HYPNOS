@@ -1,0 +1,24 @@
+
+body{
+    font-family: 'Signika', sans-serif;
+    
+}
+
+.carousel-caption{
+    color: black;
+    font-weight: bold;
+}
+
+nav{
+    background-color: #D0D3D4;
+}
+
+.nav-link{
+    color: #00B2A9;
+    font-weight:700;
+}
+
+
+img.hotel{
+    opacity: 0.8;
+}

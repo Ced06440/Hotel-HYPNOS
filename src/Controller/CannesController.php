@@ -22,10 +22,12 @@ class CannesController extends AbstractController
     public function index(): Response
     {
         $roomCannes = $this->entityManager->getRepository(RoomsCannes::class)->findAll();
+        $hotelCannes = $this->entityManager->getRepository(Hotel::class)->findBy(array('name'=>'Hypnos Cannes'));
         
         return $this->render('cannes/index.html.twig', [
 
-            'room' => $roomCannes
+            'roomCannes' => $roomCannes,
+            'hotelCannes' => $hotelCannes,
         ]);
     }
 }

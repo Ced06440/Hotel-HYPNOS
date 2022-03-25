@@ -2,15 +2,15 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\RoomsParis;
-use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
-use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
-use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
-use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
+use App\Entity\RoomsTheoule;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
+use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
+use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 
-class ManagerParisController extends AbstractDashboardController
+class ManagerTheouleController extends AbstractDashboardController
 {
     public function __construct(
         private AdminUrlGenerator $adminUrlGenerator)
@@ -18,10 +18,10 @@ class ManagerParisController extends AbstractDashboardController
         
     }
     
-    #[Route('/managerParis', name: 'Manager_Paris')]
+    #[Route('/managerTheoule', name: 'Manager_Theoule')]
     public function index(): Response
     {
-        $url = $this->adminUrlGenerator->setController(RoomsParisCrudController::class)->generateUrl();
+        $url = $this->adminUrlGenerator->setController(RoomsTheouleCrudController::class)->generateUrl();
 
         return $this->redirect($url);
 
@@ -45,12 +45,12 @@ class ManagerParisController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('Hypnos PARIS');
+            ->setTitle('Hypnos Theoule sur mer');
     }
 
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
-        yield MenuItem::linkToCrud('Chambre', "fa-solid fa-bed-front", RoomsParis::class);
+        yield MenuItem::linkToCrud('Chambre', 'fa-solid fa-bed', RoomsTheoule::class);
     }
 }

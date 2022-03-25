@@ -9,8 +9,16 @@ Vous étes connecté en tant que {{app.user.email}}<br/>
 
 
 {% if is_granted('ROLE_ADMIN') %}
-<a href="/admin">Vous étes admninistrateur accéder au Backoffice</a><br/>
-<a href="/managerParis">Hotel HYPNOS Paris</a><br/>
+<span>Vous étes admninistrateur du Group HYPNOS vous pouvez : </span>
+<hr>
+<a href="/admin">accéder au Backoffice</a><br/>
+<a href="/managerParis">A l'hotel HYPNOS Paris</a><br/>
+<a href="/managerCannes">A l'hotel HYPNOS Cannes</a><br/>
+<a href="/managerMandelieu">A l'hotel HYPNOS Mandelieu</a><br/>
+<a href="/managerTheoule">A l'hotel HYPNOS Theoule</a><br/>
+<a href="/managerChamonix">A l'hotel HYPNOS Chamonix</a><br/>
+<a href="/managerAuxerre">A l'hotel HYPNOS Auxerre</a><br/>
+<a href="/managerNice">A l'hotel HYPNOS Nice</a><br/>
 {% endif %}
 
 {% if is_granted('ROLE_MANAGER_PARIS') %}
@@ -18,27 +26,27 @@ Vous étes connecté en tant que {{app.user.email}}<br/>
 {% endif %}
 
 {% if is_granted('ROLE_MANAGER_CANNES') %}
-<a href="/managerCannes">Vous étes manager de hotel, acceder a votre interface</a>
+<a class='text-align' href="/managerCannes">Vous étes manager de hotel de Cannes, acceder a votre interface</a>
 {% endif %}
 
 {% if is_granted('ROLE_MANAGER_MANDELIEU') %}
-<a href="">Vous étes manager de hotel, acceder a votre interface</a>
+<a href="/managerMandelieu">Vous étes manager de hotel de Mandelieu, acceder a votre interface</a>
 {% endif %}
 
 {% if is_granted('ROLE_MANAGER_THEOULE') %}
-<a href="">Vous étes manager de hotel, acceder a votre interface</a>
+<a href="/managerTheoule">Vous étes manager de hotel de Theoule, acceder a votre interface</a>
 {% endif %}
 
 {% if is_granted('ROLE_MANAGER_CHAMONIX') %}
-<a href="">Vous étes manager de hotel, acceder a votre interface</a>
+<a href="/managerChamonix">Vous étes manager de hotel de Chamonix, acceder a votre interface</a>
 {% endif %}
 
 {% if is_granted('ROLE_MANAGER_AUXERRE') %}
-<a href="">Vous étes manager de hotel, acceder a votre interface</a>
+<a href="/managerAuxerre">Vous étes manager de hotel d'Auxerre, acceder a votre interface</a>
 {% endif %}
 
 {% if is_granted('ROLE_MANAGER_NICE') %}
-<a href="">Vous étes manager de hotel, acceder a votre interface</a>
+<a href="/managerNice">Vous étes manager de hotel de Nice, acceder a votre interface</a>
 {% endif %}
 
 

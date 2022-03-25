@@ -31,6 +31,9 @@ class Hotel
     #[ORM\Column(type: 'integer')]
     private $phoneNumber;
 
+    #[ORM\Column(type: 'string', length: 255)]
+    private $photoBandeau;
+
     public function __toString()
     {
         return $this->getName();
@@ -109,6 +112,18 @@ class Hotel
     public function setPhoneNumber(int $phoneNumber): self
     {
         $this->phoneNumber = $phoneNumber;
+
+        return $this;
+    }
+
+    public function getPhotoBandeau(): ?string
+    {
+        return $this->photoBandeau;
+    }
+
+    public function setPhotoBandeau(string $photoBandeau): self
+    {
+        $this->photoBandeau = $photoBandeau;
 
         return $this;
     }

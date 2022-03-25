@@ -51,6 +51,6 @@ class ManagerCannesController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
-        yield MenuItem::linkToCrud('The Label', 'fas fa-list', RoomsCannes::class);
+        yield MenuItem::linkToCrud('Chambre', 'fa-solid fa-bed', RoomsCannes::class);
     }
 }

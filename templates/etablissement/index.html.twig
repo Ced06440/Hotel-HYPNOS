@@ -1,0 +1,118 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nos établissement HYPNOS hôtel{% endblock %}
+
+{% block content %}
+{% for hotelAuxerre in hotelAuxerre %}
+{% for hotelCannes in hotelCannes %}
+{% for hotelChamonix in hotelChamonix %}
+{% for hotelMandelieu in hotelMandelieu %}
+{% for hotelNice in hotelNice %}
+{% for hotelParis in hotelParis %}
+{% for hotelTheoule in hotelTheoule %}
+        
+
+
+<hr class="featurette-divider">
+
+        <div class="row featurette">
+            <div class="col-md-7">
+                <h2 class="featurette-heading text-center">{{hotelAuxerre.name}}</span></h2>
+                <p class="lead">{{hotelAuxerre.description}}</p>
+                <a href="{{path('app_auxerre')}}"><button class='btn '>Réserver votre chambre dans cet hôtel</button></a>
+            </div>
+            <div class="col-md-5">
+                <img src="/assets/{{hotelAuxerre.photoBandeau}}" alt="" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500">
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+<hr class="featurette-divider">
+
+        <div class="row featurette">
+            <div class="col-md-7 order-md-2">
+                <h2 class="featurette-heading text-center">{{hotelCannes.name}}</span></h2>
+                <p class="lead">{{hotelCannes.description}}</p>
+                <a href="{{path('app_cannes')}}"><button class='btn '>Réserver votre chambre dans cet hôtel</button></a>
+            </div>
+            <div class="col-md-5">
+                <img src="/assets/{{hotelCannes.photoBandeau}}" alt="" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500">
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+<div class="row featurette">
+            <div class="col-md-7">
+                <h2 class="featurette-heading text-center">{{hotelChamonix.name}}</span></h2>
+                <p class="lead">{{hotelChamonix.description}}</p>
+                <a href="{{path('app_chamonix')}}"><button class='btn '>Réserver votre chambre dans cet hôtel</button></a>
+            </div>
+            <div class="col-md-5">
+                <img src="/assets/{{hotelChamonix.photoBandeau}}" alt="" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500">
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+<hr class="featurette-divider">
+
+        <div class="row featurette">
+            <div class="col-md-7 order-md-2">
+                <h2 class="featurette-heading text-center">{{hotelMandelieu.name}}</span></h2>
+                <p class="lead">{{hotelMandelieu.description}}</p>
+                <a href="{{path('app_mandelieu')}}"><button class='btn '>Réserver votre chambre dans cet hôtel</button></a>
+            </div>
+            <div class="col-md-5">
+                <img src="/assets/{{hotelMandelieu.photoBandeau}}" alt="" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500">
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+<div class="row featurette">
+            <div class="col-md-7">
+                <h2 class="featurette-heading text-center">{{hotelNice.name}}</span></h2>
+                <p class="lead">{{hotelNice.description}}</p>
+                <a href="{{path('app_nice')}}"><button class='btn '>Réserver votre chambre dans cet hôtel</button></a>
+            </div>
+            <div class="col-md-5">
+                <img src="/assets/{{hotelNice.photoBandeau}}" alt="" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500">
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+<hr class="featurette-divider">
+
+        <div class="row featurette">
+            <div class="col-md-7 order-md-2">
+                <h2 class="featurette-heading text-center">{{hotelParis.name}}</span></h2>
+                <p class="lead">{{hotelParis.description}}</p>
+                <a href="{{path('app_paris')}}"><button class='btn '>Réserver votre chambre dans cet hôtel</button></a>
+            </div>
+            <div class="col-md-5">
+                <img src="/assets/{{hotelParis.photoBandeau}}" alt="" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500">
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+<div class="row featurette">
+            <div class="col-md-7">
+                <h2 class="featurette-heading text-center">{{hotelTheoule.name}}</span></h2>
+                <p class="lead">{{hotelTheoule.description}}</p>
+                <a href="{{path('app_theoule')}}"><button class='btn '>Réserver votre chambre dans cet hôtel</button></a>
+            </div>
+            <div class="col-md-5">
+                <img src="/assets/{{hotelTheoule.photoBandeau}}" alt="" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500">
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+
+
+{% endfor %}{% endfor %}{% endfor %}{% endfor %}{% endfor %}{% endfor %}{% endfor %}
+{% endblock %}

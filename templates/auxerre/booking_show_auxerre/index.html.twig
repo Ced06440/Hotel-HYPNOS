@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BookingController!{% endblock %}
+
+{% block content %}
+
+	<h1>Ma réservation</h1>
+
+<div class="container">
+<img src="" alt="">
+	<div class="row">
+		<div>Votre commande n°{{booking.id}}, as bien etais prise en compte</div>
+		<div>Vous avez réserver du {{booking.startDate | date('d/m/Y')}}, au {{booking.endDate | date('d/m/Y')}} </div>
+		<div>Pour le chambre {{booking.rooms.name}}, au prix de {{(booking.rooms.price / 100) | number_format(2, ',' , '.' )}}€ la nuit.</div>
+	</div>
+</div>
+
+{% endblock %}

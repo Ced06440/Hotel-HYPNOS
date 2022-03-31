@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes reservation {% endblock %}
+
+{% block content %}
+{{dump(bookingAuxerre)}}
+<div class="container">
+    <h1>Vos reservation</h1>
+    <div class="alert alert-info mt5">
+        <p>Retrouvez vos réservation dans notre hotel d'Auxerre</p>
+    <table class="table">
+        <thead>
+            <tr>
+            <th scope="col">Chambre</th>
+            <th scope="col">Arriver</th>
+            <th scope="col">Depart</th>
+            <th scope="col">Prix</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for bookingAuxerre in bookingAuxerre %}
+            <tr>                
+                    <td>{{bookingAuxerre.rooms.name}}</td>                
+                    <td>{{bookingAuxerre.startDate | date('d/m/Y')}}</td>
+                    <td>{{bookingAuxerre.endDate | date('d/m/Y')}}</td>
+                    <td>{{(bookingAuxerre.rooms.price / 100) | number_format(2, ',' , '.' )}}€ la nuit.</td>
+                
+            </tr>
+            {% endfor %}            
+        </tbody>
+    </table>           
+        
+
+    </div>
+</div>
+
+{% endblock %}

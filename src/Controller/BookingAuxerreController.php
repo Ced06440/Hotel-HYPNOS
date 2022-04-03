@@ -41,9 +41,12 @@ class BookingAuxerreController extends AbstractController
         $rooms = $booking->getRooms();
 
         $date = $this->entityManager->getRepository(BookingAuxerre::class)->findAll();
-        $test = ($date.{date.startDate});
 
-        dd($date);
+        foreach($dates as booking{$date.startDate})
+        {
+            dd($dates);
+        }
+        
 
         if($bookingForm->isSubmitted() && $bookingForm->isValid()){
             

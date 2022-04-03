@@ -3,10 +3,13 @@
 namespace App\Repository;
 
 use App\Entity\BookingAuxerre;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
+use Doctrine\ORM\Query\Expr\Select;
+use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\OptimisticLockException;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Mapping\Id;
 
 /**
  * @method BookingAuxerre|null find($id, $lockMode = null, $lockVersion = null)
@@ -43,6 +46,18 @@ class BookingAuxerreRepository extends ServiceEntityRepository
         if ($flush) {
             $this->_em->flush();
         }
+    }
+
+    public function findNotAvailableDay( $firstDateTime, $lastDateTime) 
+    {
+            $qb = $this->getEntityManager()->createQueryBuilder()
+                ->where('f.id BETWEEN :startDate AND :endDate')
+                ->setParameter('startDate', $firstDateTime)
+                ->setParameter('endDate', $lastDateTime)
+            ;
+            $result = $qb->getQuery()->getResult();
+        
+            return $result;
     }
 
     // /**

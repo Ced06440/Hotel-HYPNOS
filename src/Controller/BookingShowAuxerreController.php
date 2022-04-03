@@ -25,13 +25,12 @@ class BookingShowAuxerreController extends AbstractController
 
     public function index($id): Response
     {
-            
         $booking = $this->entityManager->getRepository(BookingAuxerre::class)->find($id);
         $roomAuxerre = $this->entityManager->getRepository(RoomsAuxerre::class)->findAll();
         $user = $this->entityManager->getRepository(Users::class)->findAll();
 
         return $this->render('auxerre/booking_show_auxerre/index.html.twig', [
-            
+
             'booking' => $booking,
             'room' => $roomAuxerre,
             'user' => $user,

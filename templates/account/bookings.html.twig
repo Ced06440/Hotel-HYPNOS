@@ -3,7 +3,7 @@
 {% block title %}Mes reservation {% endblock %}
 
 {% block content %}
-{{dump(bookingAuxerre)}}
+
 <div class="container">
     <h1>Vos reservation</h1>
     <div class="alert alert-info mt5">
@@ -18,15 +18,16 @@
             </tr>
         </thead>
         <tbody>
-        {% for bookingAuxerre in bookingAuxerre %}
+        {% for bookingAuxerre in app.user.bookingAuxerres %}
             <tr>                
                     <td>{{bookingAuxerre.rooms.name}}</td>                
                     <td>{{bookingAuxerre.startDate | date('d/m/Y')}}</td>
                     <td>{{bookingAuxerre.endDate | date('d/m/Y')}}</td>
                     <td>{{(bookingAuxerre.rooms.price / 100) | number_format(2, ',' , '.' )}}€ la nuit.</td>
-                
+                    <td><a href="{{path('app_account_delete_bookings', {'id' : bookingAuxerre.id } )}}">Supprimer ma commande</a></td>
             </tr>
-            {% endfor %}            
+            {% endfor %}
+
         </tbody>
     </table>           
         

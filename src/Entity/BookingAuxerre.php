@@ -2,8 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\BookingAuxerreRepository;
+use App\Entity\Users;
+use App\Entity\RoomsAuxerre;
+use App\Form\BookingAuxerreType;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\EntityManagerInterface;
+use App\Repository\BookingAuxerreRepository;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 #[ORM\Entity(repositoryClass: BookingAuxerreRepository::class)]
 class BookingAuxerre
@@ -29,6 +34,7 @@ class BookingAuxerre
     #[ORM\ManyToOne(targetEntity: RoomsAuxerre::class, inversedBy: 'bookingAuxerres')]
     #[ORM\JoinColumn(nullable: false)]
     private $rooms;
+
 
     public function getId(): ?int
     {
@@ -93,5 +99,21 @@ class BookingAuxerre
         $this->rooms = $rooms;
 
         return $this;
+    }
+
+    private $session;
+
+    public function _construct(SessionInterface $session)
+    {
+        $this->session = $session;
+    }
+
+    public function delete ($id)
+    {
+        $booking = $this->session->get('bookingAuxerres');
+
+        unset($booking,$id);
+
+        return $this->session->set('bookingAuxerres', $booking);
     }
 }

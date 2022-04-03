@@ -20,7 +20,7 @@ class BookingAuxerreType extends AbstractType
             ->add('startDate', DateType::class, 
             [
                 'label' => 'Arrivée le : ',
-                'widget' => 'single_text' 
+                'widget' => 'single_text'
                 
             ])
             

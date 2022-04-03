@@ -2,11 +2,15 @@
 
 namespace App\Controller;
 
+use App\Entity\Booking;
 use App\Entity\Hotel;
 use App\Entity\BookingAuxerre;
 use App\Entity\RoomsAuxerre;
 use App\Form\BookingAuxerreType;
+use DateTime;
+use DateTimeInterface;
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -32,18 +36,32 @@ class BookingAuxerreController extends AbstractController
 
         $bookingForm->handleRequest($request);
 
+        $startDate = $booking->getStartDate();
+        $endDate = $booking->getEndDate();
+        $rooms = $booking->getRooms();
+
+        $date = $this->entityManager->getRepository(BookingAuxerre::class)->findOneBy(array('startDate'));
+        $test = ($date->getEndDate() - $startDate);
+
+        dd($date);
+
         if($bookingForm->isSubmitted() && $bookingForm->isValid()){
             
             $user = $this->getUser();
 
-            $booking->setBookers($user);
+            $booking->setBookers($this->getUser($user));
             $booking->setCreatedAt(new \DateTime('now'));
+
+            $startDate = $booking->getStartDate();
+            $endDate = $booking->getEndDate();
+            $rooms = $booking->getRooms();
 
             $this->entityManager->persist($booking);
             $this->entityManager->flush();
-
+            
             return $this->redirectToRoute('auxerre/app_booking_show_auxerre', ['id' => $booking->getId()]);
-        }
+            
+        }    
 
         $roomAuxerre = $this->entityManager->getRepository(RoomsAuxerre::class)->findAll();
         $hotelAuxerre = $this->entityManager->getRepository(Hotel::class)->findBy(array('name'=>'Hypnos Auxerre'));
@@ -54,6 +72,6 @@ class BookingAuxerreController extends AbstractController
             'hotelAuxerre' => $hotelAuxerre,
             'bookingAuxerreForm' => $bookingForm->createView(),
         ]);
-    }
+    }  
 
 }

@@ -13,10 +13,6 @@ class Booking
     #[ORM\Column(type: 'integer')]
     private $id;
 
-    #[ORM\ManyToOne(targetEntity: Users::class, inversedBy: 'bookings')]
-    #[ORM\JoinColumn(nullable: false)]
-    private $booker;
-
     #[ORM\Column(type: 'datetime')]
     private $endDate;
 
@@ -26,29 +22,11 @@ class Booking
     #[ORM\Column(type: 'datetime')]
     private $createdAt;
 
-    #[ORM\ManyToOne(targetEntity: RoomsAuxerre::class, inversedBy: 'bookings')]
-    #[ORM\JoinColumn(nullable: false)]
-    private $rooms;
-
-    #[ORM\ManyToOne(targetEntity: Hotel::class, inversedBy: 'bookings')]
-    private $hotels;
 
 
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getBooker(): ?Users
-    {
-        return $this->booker;
-    }
-
-    public function setBooker(?Users $booker): self
-    {
-        $this->booker = $booker;
-
-        return $this;
     }
 
     public function getEndDate(): ?\DateTimeInterface
@@ -86,35 +64,4 @@ class Booking
 
         return $this;
     }
-
-    public function getRooms(): ?RoomsAuxerre
-    {
-        return $this->rooms;
-    }
-
-    public function setRooms(?RoomsAuxerre $rooms): self
-    {
-        $this->rooms = $rooms;
-
-        return $this;
-    }
-
-    public function getDuration()
-    {
-        $diff = $this->endDate->diff($this->startDate);
-        return $diff->days;
-    }
-
-    public function getHotels(): ?Hotel
-    {
-        return $this->hotels;
-    }
-
-    public function setHotels(?Hotel $hotels): self
-    {
-        $this->hotels = $hotels;
-
-        return $this;
-    }
-
 }

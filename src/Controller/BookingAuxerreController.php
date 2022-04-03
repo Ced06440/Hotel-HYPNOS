@@ -40,8 +40,8 @@ class BookingAuxerreController extends AbstractController
         $endDate = $booking->getEndDate();
         $rooms = $booking->getRooms();
 
-        $date = $this->entityManager->getRepository(BookingAuxerre::class)->findOneBy(array('startDate'));
-        $test = ($date->getEndDate() - $startDate);
+        $date = $this->entityManager->getRepository(BookingAuxerre::class)->findAll();
+        $test = ($date.{date.startDate});
 
         dd($date);
 

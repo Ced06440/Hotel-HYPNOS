@@ -16,5 +16,4 @@
         "build": "encore production --progress",
         "heroku-postbuild" : "node_modules/.bin/encore production"
     }
-
 }

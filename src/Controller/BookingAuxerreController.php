@@ -42,9 +42,9 @@ class BookingAuxerreController extends AbstractController
 
         $date = $this->entityManager->getRepository(BookingAuxerre::class)->findAll();
 
-        foreach($dates as booking{$date.startDate})
+        foreach($date as $truc)
         {
-            dd($dates);
+            dd($truc);
         }
         
 

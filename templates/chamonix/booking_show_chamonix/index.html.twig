@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Reservation{% endblock %}
+
+{% block content %}
+
+	<h1 class='text-center'>Ma réservation</h1>
+
+<div class="container text-center">
+
+	<div class="row">
+	
+		<div>Votre commande n°{{booking.id}}, a bien etait prise en compte</div>
+		<div>Vous avez réservé du {{booking.startDate | date('d/m/Y')}}, au {{booking.endDate | date('d/m/Y')}}. </div>
+		<div>Pour la chambre {{booking.rooms.name}}, au prix de {{(booking.rooms.price / 100) | number_format(2, ',' , '.' )}}€ la nuit.</div>
+		<div><a href="{{path('app_account_bookings')}}" class='btn btn-primary mb-4 mt-4'>Voir mes réservation</a></div>
+		<div><img src="/assets/{{booking.rooms.image}}" alt="" width='800px'></div>
+	</div>
+</div>
+
+{% endblock %}

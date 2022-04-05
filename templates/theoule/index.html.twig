@@ -34,7 +34,12 @@
         <div>
         <span class='me-3 '>{{(rooms.price / 100) | number_format(2, ',' , '.' )}} € <b> par nuit</b></span>
         </div>
-        <button href='' type='button' class='btn btn-primary'>Reserver votre suite</button>
+        {% if app.user %}
+        <a href=" {{path('theoule/app_booking_theoule')}} "><button type='button' class='btn btn-primary'>Réserver votre suite</button></a>
+        {% else %}
+        <div>Pour pouvoir reserver une chambre merci de vous s'incrire avant</div>
+        <a href=" {{path('app_register')}} "><button type='button' class='btn btn-primary'>S'incrire</button></a>
+        {% endif %}
     </div>
 
 {% endfor %}{% endfor %}

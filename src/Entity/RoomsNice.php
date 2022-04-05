@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\RoomsNiceRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: RoomsNiceRepository::class)]
@@ -25,6 +27,19 @@ class RoomsNice
     #[ORM\Column(type: 'integer')]
     private $price;
 
+    #[ORM\OneToMany(mappedBy: 'rooms', targetEntity: BookingNice::class)]
+    private $bookingNices;
+
+    public function __construct()
+    {
+        $this->bookingNices = new ArrayCollection();
+    }
+
+    public function __toString()
+    {
+        return $this->getName();
+    }
+    
     public function getId(): ?int
     {
         return $this->id;
@@ -74,6 +89,36 @@ class RoomsNice
     public function setPrice(int $price): self
     {
         $this->price = $price;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, BookingNice>
+     */
+    public function getBookingNices(): Collection
+    {
+        return $this->bookingNices;
+    }
+
+    public function addBookingNice(BookingNice $bookingNice): self
+    {
+        if (!$this->bookingNices->contains($bookingNice)) {
+            $this->bookingNices[] = $bookingNice;
+            $bookingNice->setRooms($this);
+        }
+
+        return $this;
+    }
+
+    public function removeBookingNice(BookingNice $bookingNice): self
+    {
+        if ($this->bookingNices->removeElement($bookingNice)) {
+            // set the owning side to null (unless already changed)
+            if ($bookingNice->getRooms() === $this) {
+                $bookingNice->setRooms(null);
+            }
+        }
 
         return $this;
     }

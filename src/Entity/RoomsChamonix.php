@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\RoomsChamonixRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: RoomsChamonixRepository::class)]
@@ -25,6 +27,19 @@ class RoomsChamonix
     #[ORM\Column(type: 'integer')]
     private $price;
 
+    #[ORM\OneToMany(mappedBy: 'rooms', targetEntity: BookingChamonix::class)]
+    private $bookingChamonixes;
+
+    public function __construct()
+    {
+        $this->bookingChamonixes = new ArrayCollection();
+    }
+
+    public function __toString()
+    {
+        return $this->getName();
+    }
+    
     public function getId(): ?int
     {
         return $this->id;
@@ -74,6 +89,36 @@ class RoomsChamonix
     public function setPrice(int $price): self
     {
         $this->price = $price;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, BookingChamonix>
+     */
+    public function getBookingChamonixes(): Collection
+    {
+        return $this->bookingChamonixes;
+    }
+
+    public function addBookingChamonix(BookingChamonix $bookingChamonix): self
+    {
+        if (!$this->bookingChamonixes->contains($bookingChamonix)) {
+            $this->bookingChamonixes[] = $bookingChamonix;
+            $bookingChamonix->setRooms($this);
+        }
+
+        return $this;
+    }
+
+    public function removeBookingChamonix(BookingChamonix $bookingChamonix): self
+    {
+        if ($this->bookingChamonixes->removeElement($bookingChamonix)) {
+            // set the owning side to null (unless already changed)
+            if ($bookingChamonix->getRooms() === $this) {
+                $bookingChamonix->setRooms(null);
+            }
+        }
 
         return $this;
     }

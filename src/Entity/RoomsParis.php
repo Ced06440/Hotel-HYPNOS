@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\RoomsParisRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: RoomsParisRepository::class)]
@@ -24,6 +26,19 @@ class RoomsParis
 
     #[ORM\Column(type: 'integer')]
     private $price;
+
+    #[ORM\OneToMany(mappedBy: 'rooms', targetEntity: BookingParis::class)]
+    private $bookingParis;
+
+    public function __toString()
+    {
+        return $this->getName();
+    }
+    
+    public function __construct()
+    {
+        $this->bookingParis = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -74,6 +89,36 @@ class RoomsParis
     public function setPrice(int $price): self
     {
         $this->price = $price;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, BookingParis>
+     */
+    public function getBookingParis(): Collection
+    {
+        return $this->bookingParis;
+    }
+
+    public function addBookingPari(BookingParis $bookingPari): self
+    {
+        if (!$this->bookingParis->contains($bookingPari)) {
+            $this->bookingParis[] = $bookingPari;
+            $bookingPari->setRooms($this);
+        }
+
+        return $this;
+    }
+
+    public function removeBookingPari(BookingParis $bookingPari): self
+    {
+        if ($this->bookingParis->removeElement($bookingPari)) {
+            // set the owning side to null (unless already changed)
+            if ($bookingPari->getRooms() === $this) {
+                $bookingPari->setRooms(null);
+            }
+        }
 
         return $this;
     }

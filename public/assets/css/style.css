@@ -42,3 +42,7 @@ img.hotel{
     margin-left: 580px;
     align-items: center;
 }
+
+.form-control{
+    width: 300px;
+}

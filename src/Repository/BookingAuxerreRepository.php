@@ -48,17 +48,6 @@ class BookingAuxerreRepository extends ServiceEntityRepository
         }
     }
 
-    public function findNotAvailableDay( $firstDateTime, $lastDateTime) 
-    {
-            $qb = $this->getEntityManager()->createQueryBuilder()
-                ->where('f.id BETWEEN :startDate AND :endDate')
-                ->setParameter('startDate', $firstDateTime)
-                ->setParameter('endDate', $lastDateTime)
-            ;
-            $result = $qb->getQuery()->getResult();
-        
-            return $result;
-    }
 
     // /**
     //  * @return BookingAuxerre[] Returns an array of BookingAuxerre objects

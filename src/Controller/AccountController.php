@@ -3,8 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\BookingAuxerre;
+use App\Entity\BookingParis;
 use App\Entity\Hotel;
 use App\Entity\RoomsAuxerre;
+use App\Entity\RoomsParis;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -31,11 +33,18 @@ class AccountController extends AbstractController
     {
         $bookingsAuxerre = $this->entityManager->getRepository(BookingAuxerre::class)->findAll();
         $roomAuxerre = $this->entityManager->getRepository(RoomsAuxerre::class)->findAll();
+
+        $bookingParis = $this->entityManager->getRepository(BookingParis::class)->findAll();
+        $roomParis = $this->entityManager->getRepository(RoomsParis::class)->findAll();
+
         return $this->render('account/bookings.html.twig',
     [
         
         'bookingAuxerre' => $bookingsAuxerre,
         'roomAuxerre' => $roomAuxerre,
+
+        'bookingParis' => $bookingParis,
+        'roomParis' => $roomParis,
     ]);
     }
 

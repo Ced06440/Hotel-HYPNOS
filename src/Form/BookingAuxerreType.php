@@ -11,6 +11,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class BookingAuxerreType extends AbstractType
 {
@@ -20,15 +21,19 @@ class BookingAuxerreType extends AbstractType
             ->add('startDate', DateType::class, 
             [
                 'label' => 'Arrivée le : ',
-                'widget' => 'single_text'
-                
+                'widget' => 'single_text',
+                'attr' => [
+                    'class' => 'bookingDate'
+                ]
             ])
             
             ->add('endDate', DateType::class, 
             [
                 'label'=>'Départ le :',
-                'widget' => 'single_text'
-                
+                'widget' => 'single_text',
+                'attr' => [
+                    'class' => 'bookingDate'
+                ]
             ])
             
             ->add('rooms', EntityType::class, 

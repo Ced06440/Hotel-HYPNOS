@@ -15,7 +15,7 @@ class BookingNice
     #[ORM\Column(type: 'integer')]
     private $id;
 
-    #[ORM\ManyToOne(targetEntity: Users::class, inversedBy: 'bookingNices')]
+    #[ORM\ManyToOne(targetEntity: Users::class, inversedBy: 'bookingNice')]
     #[ORM\JoinColumn(nullable: false)]
     private $bookers;
 
@@ -28,7 +28,7 @@ class BookingNice
     #[ORM\Column(type: 'datetime')]
     private $createdAt;
 
-    #[ORM\ManyToOne(targetEntity: RoomsNice::class, inversedBy: 'bookingNices')]
+    #[ORM\ManyToOne(targetEntity: RoomsNice::class, inversedBy: 'bookingNice')]
     #[ORM\JoinColumn(nullable: false)]
     private $rooms;
 

@@ -18,7 +18,7 @@ class BookingAuxerre
     #[ORM\Column(type: 'integer')]
     private $id;
 
-    #[ORM\ManyToOne(targetEntity: Users::class, inversedBy: 'bookingAuxerres')]
+    #[ORM\ManyToOne(targetEntity: Users::class, inversedBy: 'bookingAuxerre')]
     #[ORM\JoinColumn(nullable: false)]
     private $bookers;
 
@@ -31,7 +31,7 @@ class BookingAuxerre
     #[ORM\Column(type: 'datetime')]
     private $createdAt;
 
-    #[ORM\ManyToOne(targetEntity: RoomsAuxerre::class, inversedBy: 'bookingAuxerres')]
+    #[ORM\ManyToOne(targetEntity: RoomsAuxerre::class, inversedBy: 'bookingAuxerre')]
     #[ORM\JoinColumn(nullable: false)]
     private $rooms;
 
@@ -110,10 +110,10 @@ class BookingAuxerre
 
     public function delete ($id)
     {
-        $booking = $this->session->get('bookingAuxerres');
+        $booking = $this->session->get('bookingAuxerre');
 
         unset($booking,$id);
 
-        return $this->session->set('bookingAuxerres', $booking);
+        return $this->session->set('bookingAuxerre', $booking);
     }
 }

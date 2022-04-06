@@ -3,13 +3,14 @@
 {% block title %}Mes reservation {% endblock %}
 
 {% block content %}
+
 <div class="container">
     <h1 class='text-center'>Vos reservation</h1>
     <div class="alert alert-info mt5">
         <p>Retrouvez vos réservation dans nôtre <b> hôtel d'Auxerre</b></p>
     <table class="table">
         <thead>
-            <tr>
+            <th scope="col">Hotel</th>
             <th scope="col">Chambre</th>
             <th scope="col">Arriver</th>
             <th scope="col">Depart</th>
@@ -17,8 +18,8 @@
             </tr>
         </thead>
         <tbody>
-        {% for bookingAuxerre in app.user.bookingAuxerres %}
-            <tr> 
+        {% for bookingAuxerre in app.user.bookingAuxerre %}
+            <tr>
                     <td>{{bookingAuxerre.rooms.name}}</td>                
                     <td>{{bookingAuxerre.startDate | date('d/m/Y')}}</td>
                     <td>{{bookingAuxerre.endDate | date('d/m/Y')}}</td>
@@ -33,7 +34,7 @@
 
 <div class="container">
     <div class="alert alert-info mt5">
-        <p>Retrouvez vos réservation dans notre <b>hôtel de </b></p>
+        <p>Retrouvez vos réservation dans notre <b>hôtel de Cannes</b></p>
     <table class="table">
         <thead>
             <tr>
@@ -85,6 +86,112 @@
     </div>
 </div>
 
+<div class="container">
+    <div class="alert alert-info mt5">
+        <p>Retrouvez vos réservation dans notre <b>hôtel de Nice</b></p>
+    <table class="table">
+        <thead>
+            <tr>
+            <th scope="col">Chambre</th>
+            <th scope="col">Arriver</th>
+            <th scope="col">Depart</th>
+            <th scope="col">Prix</th>
+            </tr>
+        </thead>
+        <tbody>
+         {% for bookingNice in app.user.bookingNice %}
+            <tr> 
+                    <td>{{bookingNice.rooms.name}}</td>                
+                    <td>{{bookingNice.startDate | date('d/m/Y')}}</td>
+                    <td>{{bookingNice.endDate | date('d/m/Y')}}</td>
+                    <td>{{(bookingNice.rooms.price / 100) | number_format(2, ',' , '.' )}}€ la nuit.</td>
+                    <td><a href="{{path('app_account_delete_bookings', {'id' : bookingNice.id } )}}">Supprimer ma commande</a></td>
+            </tr>
+            {% endfor %}
+            </tbody>
+    </table>
+    </div>
+</div>
 
+<div class="container">
+    <div class="alert alert-info mt5">
+        <p>Retrouvez vos réservation dans notre <b>hôtel de Mandelieu</b></p>
+    <table class="table">
+        <thead>
+            <tr>
+            <th scope="col">Chambre</th>
+            <th scope="col">Arriver</th>
+            <th scope="col">Depart</th>
+            <th scope="col">Prix</th>
+            </tr>
+        </thead>
+        <tbody>
+         {% for bookingMandelieu in app.user.bookingMandelieu %}
+            <tr> 
+                    <td>{{bookingMandelieu.rooms.name}}</td>                
+                    <td>{{bookingMandelieu.startDate | date('d/m/Y')}}</td>
+                    <td>{{bookingMandelieu.endDate | date('d/m/Y')}}</td>
+                    <td>{{(bookingMandelieu.rooms.price / 100) | number_format(2, ',' , '.' )}}€ la nuit.</td>
+                    <td><a href="{{path('app_account_delete_bookings', {'id' : bookingMandelieu.id } )}}">Supprimer ma commande</a></td>
+            </tr>
+            {% endfor %}
+            </tbody>
+    </table>
+    </div>
+</div>
+
+<div class="container">
+    <div class="alert alert-info mt5">
+        <p>Retrouvez vos réservation dans notre <b>hôtel de Theoule</b></p>
+    <table class="table">
+        <thead>
+            <tr>
+            <th scope="col">Chambre</th>
+            <th scope="col">Arriver</th>
+            <th scope="col">Depart</th>
+            <th scope="col">Prix</th>
+            </tr>
+        </thead>
+        <tbody>
+         {% for bookingTheoule in app.user.bookingTheoule %}
+            <tr> 
+                    <td>{{bookingTheoule.rooms.name}}</td>                
+                    <td>{{bookingTheoule.startDate | date('d/m/Y')}}</td>
+                    <td>{{bookingTheoule.endDate | date('d/m/Y')}}</td>
+                    <td>{{(bookingTheoule.rooms.price / 100) | number_format(2, ',' , '.' )}}€ la nuit.</td>
+                    <td><a href="{{path('app_account_delete_bookings', {'id' : bookingTheoule.id } )}}">Supprimer ma commande</a></td>
+            </tr>
+            {% endfor %}
+            </tbody>
+    </table>
+    </div>
+</div>
+
+<div class="container">
+    <div class="alert alert-info mt5">
+        <p>Retrouvez vos réservation dans notre <b>hôtel de Chamonix</b></p>
+    <table class="table">
+        <thead>
+            <tr>
+            <th scope="col">Chambre</th>
+            <th scope="col">Arriver</th>
+            <th scope="col">Depart</th>
+            <th scope="col">Prix</th>
+            </tr>
+        </thead>
+        <tbody>
+         {% for bookingChamonix in app.user.bookingChamonix %}
+            <tr> 
+                    <td>{{bookingChamonix.rooms.name}}</td>                
+                    <td>{{bookingChamonix.startDate | date('d/m/Y')}}</td>
+                    <td>{{bookingChamonix.endDate | date('d/m/Y')}}</td>
+                    <td>{{(bookingChamonix.rooms.price / 100) | number_format(2, ',' , '.' )}}€ la nuit.</td>
+                    <td><a href="{{path('app_account_delete_bookings', {'id' : bookingChamonix.id } )}}">Supprimer ma commande</a></td>
+            </tr>
+            {% endfor %}
+            </tbody>
+    </table>
+    </div>
+</div>
 
 {% endblock %}

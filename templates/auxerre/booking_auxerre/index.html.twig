@@ -4,10 +4,36 @@
 
 {% block content %}
 
+<div class="container">
+    <div class="text-center"><h1>Réservation HYPNOS AUXERRE</h1></div>
 
-<h1 class='text-center'>Réservation HYPNOS AUXERRE</h1>
+{% for message in app.flashes('success') %}
+    <p>{{ message }}</p>
+{% endfor %}
 
-{{form(bookingAuxerreForm)}}
+    {{form_start(bookingAuxerreForm)}}
+
+    <div class="row justify-content-center align-items-center text-center">
+            {{ form_label(bookingAuxerreForm.startDate)}}
+            <input class="form-control" {{form_widget(bookingAuxerreForm.startDate)}}
+    </div>
+
+    <div class="row justify-content-center align-items-center text-center">
+        {{ form_label(bookingAuxerreForm.endDate)}}
+        <input class="form-control"{{form_widget(bookingAuxerreForm.endDate)}}
+    </div>
+
+    <div class="row justify-content-center align-items-center text-center">
+        {{ form_label(bookingAuxerreForm.rooms)}}
+        {{form_widget(bookingAuxerreForm.rooms)}}
+    </div>
+
+    <div class="text-center mt-4">
+        {{ form_row(bookingAuxerreForm.submit) }}
+    </div>
+
+    {{form_end(bookingAuxerreForm)}}
+</div>
 
 {% endblock %}
 

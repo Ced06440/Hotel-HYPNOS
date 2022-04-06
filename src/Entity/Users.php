@@ -2,12 +2,21 @@
 
 namespace App\Entity;
 
-use App\Repository\UsersRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+use App\Entity\Hotel;
+use App\Entity\Booking;
+use App\Entity\BookingNice;
+use App\Entity\BookingParis;
+use App\Entity\BookingCannes;
+use App\Entity\BookingAuxerre;
+use App\Entity\BookingTheoule;
+use App\Entity\BookingChamonix;
+use App\Entity\BookingMandelieu;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
+use App\Repository\UsersRepository;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 
 #[ORM\Entity(repositoryClass: UsersRepository::class)]
 class Users implements UserInterface, PasswordAuthenticatedUserInterface
@@ -39,7 +48,7 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     private $endDate;
 
     #[ORM\OneToMany(mappedBy: 'bookers', targetEntity: BookingAuxerre::class)]
-    private $bookingAuxerres;
+    private $bookingAuxerre;
 
     #[ORM\OneToMany(mappedBy: 'bookers', targetEntity: BookingParis::class)]
     private $bookingParis;
@@ -48,16 +57,16 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     private $bookingCannes;
 
     #[ORM\OneToMany(mappedBy: 'bookers', targetEntity: BookingNice::class)]
-    private $bookingNices;
+    private $bookingNice;
 
     #[ORM\OneToMany(mappedBy: 'bookers', targetEntity: BookingMandelieu::class)]
-    private $bookingMandelieus;
+    private $bookingMandelieu;
 
     #[ORM\OneToMany(mappedBy: 'bookers', targetEntity: BookingTheoule::class)]
-    private $bookingTheoules;
+    private $bookingTheoule;
 
     #[ORM\OneToMany(mappedBy: 'bookers', targetEntity: BookingChamonix::class)]
-    private $bookingChamonixes;
+    private $bookingChamonix;
 
 
 
@@ -70,13 +79,13 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     {
         $this->bookings = new ArrayCollection();
         $this->endDate = new ArrayCollection();
-        $this->bookingAuxerres = new ArrayCollection();
+        $this->bookingAuxerre = new ArrayCollection();
         $this->bookingParis = new ArrayCollection();
         $this->bookingCannes = new ArrayCollection();
-        $this->bookingNices = new ArrayCollection();
-        $this->bookingMandelieus = new ArrayCollection();
-        $this->bookingTheoules = new ArrayCollection();
-        $this->bookingChamonixes = new ArrayCollection();
+        $this->bookingNice = new ArrayCollection();
+        $this->bookingMandelieu = new ArrayCollection();
+        $this->bookingTheoule = new ArrayCollection();
+        $this->bookingChamonix = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -218,15 +227,15 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @return Collection<int, BookingAuxerre>
      */
-    public function getBookingAuxerres(): Collection
+    public function getBookingAuxerre(): Collection
     {
-        return $this->bookingAuxerres;
+        return $this->bookingAuxerre;
     }
 
     public function addBookingAuxerre(BookingAuxerre $bookingAuxerre): self
     {
-        if (!$this->bookingAuxerres->contains($bookingAuxerre)) {
-            $this->bookingAuxerres[] = $bookingAuxerre;
+        if (!$this->bookingAuxerre->contains($bookingAuxerre)) {
+            $this->bookingAuxerre[] = $bookingAuxerre;
             $bookingAuxerre->setBookers($this);
         }
 
@@ -235,7 +244,7 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function removeBookingAuxerre(BookingAuxerre $bookingAuxerre): self
     {
-        if ($this->bookingAuxerres->removeElement($bookingAuxerre)) {
+        if ($this->bookingAuxerre->removeElement($bookingAuxerre)) {
             // set the owning side to null (unless already changed)
             if ($bookingAuxerre->getBookers() === $this) {
                 $bookingAuxerre->setBookers(null);
@@ -253,22 +262,22 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->bookingParis;
     }
 
-    public function addBookingPari(BookingParis $bookingPari): self
+    public function addBookingParis(BookingParis $bookingParis): self
     {
-        if (!$this->bookingParis->contains($bookingPari)) {
-            $this->bookingParis[] = $bookingPari;
-            $bookingPari->setBookers($this);
+        if (!$this->bookingParis->contains($bookingParis)) {
+            $this->bookingParis[] = $bookingParis;
+            $bookingParis->setBookers($this);
         }
 
         return $this;
     }
 
-    public function removeBookingPari(BookingParis $bookingPari): self
+    public function removeBookingPari(BookingParis $bookingParis): self
     {
-        if ($this->bookingParis->removeElement($bookingPari)) {
+        if ($this->bookingParis->removeElement($bookingParis)) {
             // set the owning side to null (unless already changed)
-            if ($bookingPari->getBookers() === $this) {
-                $bookingPari->setBookers(null);
+            if ($bookingParis->getBookers() === $this) {
+                $bookingParis->setBookers(null);
             }
         }
 
@@ -283,22 +292,22 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->bookingCannes;
     }
 
-    public function addBookingCanne(BookingCannes $bookingCanne): self
+    public function addBookingCanne(BookingCannes $bookingCannes): self
     {
-        if (!$this->bookingCannes->contains($bookingCanne)) {
-            $this->bookingCannes[] = $bookingCanne;
-            $bookingCanne->setBookers($this);
+        if (!$this->bookingCannes->contains($bookingCannes)) {
+            $this->bookingCannes[] = $bookingCannes;
+            $bookingCannes->setBookers($this);
         }
 
         return $this;
     }
 
-    public function removeBookingCanne(BookingCannes $bookingCanne): self
+    public function removeBookingCannes(BookingCannes $bookingCannes): self
     {
-        if ($this->bookingCannes->removeElement($bookingCanne)) {
+        if ($this->bookingCannes->removeElement($bookingCannes)) {
             // set the owning side to null (unless already changed)
-            if ($bookingCanne->getBookers() === $this) {
-                $bookingCanne->setBookers(null);
+            if ($bookingCannes->getBookers() === $this) {
+                $bookingCannes->setBookers(null);
             }
         }
 
@@ -308,15 +317,15 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @return Collection<int, BookingNice>
      */
-    public function getBookingNices(): Collection
+    public function getBookingNice(): Collection
     {
-        return $this->bookingNices;
+        return $this->bookingNice;
     }
 
     public function addBookingNice(BookingNice $bookingNice): self
     {
-        if (!$this->bookingNices->contains($bookingNice)) {
-            $this->bookingNices[] = $bookingNice;
+        if (!$this->bookingNice->contains($bookingNice)) {
+            $this->bookingNice[] = $bookingNice;
             $bookingNice->setBookers($this);
         }
 
@@ -325,7 +334,7 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function removeBookingNice(BookingNice $bookingNice): self
     {
-        if ($this->bookingNices->removeElement($bookingNice)) {
+        if ($this->bookingNice->removeElement($bookingNice)) {
             // set the owning side to null (unless already changed)
             if ($bookingNice->getBookers() === $this) {
                 $bookingNice->setBookers(null);
@@ -338,15 +347,15 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @return Collection<int, BookingMandelieu>
      */
-    public function getBookingMandelieus(): Collection
+    public function getBookingMandelieu(): Collection
     {
-        return $this->bookingMandelieus;
+        return $this->bookingMandelieu;
     }
 
     public function addBookingMandelieu(BookingMandelieu $bookingMandelieu): self
     {
-        if (!$this->bookingMandelieus->contains($bookingMandelieu)) {
-            $this->bookingMandelieus[] = $bookingMandelieu;
+        if (!$this->bookingMandelieu->contains($bookingMandelieu)) {
+            $this->bookingMandelieu[] = $bookingMandelieu;
             $bookingMandelieu->setBookers($this);
         }
 
@@ -355,7 +364,7 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function removeBookingMandelieu(BookingMandelieu $bookingMandelieu): self
     {
-        if ($this->bookingMandelieus->removeElement($bookingMandelieu)) {
+        if ($this->bookingMandelieu->removeElement($bookingMandelieu)) {
             // set the owning side to null (unless already changed)
             if ($bookingMandelieu->getBookers() === $this) {
                 $bookingMandelieu->setBookers(null);
@@ -368,15 +377,15 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @return Collection<int, BookingTheoule>
      */
-    public function getBookingTheoules(): Collection
+    public function getBookingTheoule(): Collection
     {
-        return $this->bookingTheoules;
+        return $this->bookingTheoule;
     }
 
     public function addBookingTheoule(BookingTheoule $bookingTheoule): self
     {
-        if (!$this->bookingTheoules->contains($bookingTheoule)) {
-            $this->bookingTheoules[] = $bookingTheoule;
+        if (!$this->bookingTheoule->contains($bookingTheoule)) {
+            $this->bookingTheoule[] = $bookingTheoule;
             $bookingTheoule->setBookers($this);
         }
 
@@ -385,7 +394,7 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function removeBookingTheoule(BookingTheoule $bookingTheoule): self
     {
-        if ($this->bookingTheoules->removeElement($bookingTheoule)) {
+        if ($this->bookingTheoule->removeElement($bookingTheoule)) {
             // set the owning side to null (unless already changed)
             if ($bookingTheoule->getBookers() === $this) {
                 $bookingTheoule->setBookers(null);
@@ -398,15 +407,15 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @return Collection<int, BookingChamonix>
      */
-    public function getBookingChamonixes(): Collection
+    public function getBookingChamonix(): Collection
     {
-        return $this->bookingChamonixes;
+        return $this->bookingChamonix;
     }
 
     public function addBookingChamonix(BookingChamonix $bookingChamonix): self
     {
-        if (!$this->bookingChamonixes->contains($bookingChamonix)) {
-            $this->bookingChamonixes[] = $bookingChamonix;
+        if (!$this->bookingChamonix->contains($bookingChamonix)) {
+            $this->bookingChamonix[] = $bookingChamonix;
             $bookingChamonix->setBookers($this);
         }
 
@@ -415,7 +424,7 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function removeBookingChamonix(BookingChamonix $bookingChamonix): self
     {
-        if ($this->bookingChamonixes->removeElement($bookingChamonix)) {
+        if ($this->bookingChamonix->removeElement($bookingChamonix)) {
             // set the owning side to null (unless already changed)
             if ($bookingChamonix->getBookers() === $this) {
                 $bookingChamonix->setBookers(null);

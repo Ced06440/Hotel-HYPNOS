@@ -2,11 +2,21 @@
 
 namespace App\Controller;
 
-use App\Entity\BookingAuxerre;
-use App\Entity\BookingParis;
 use App\Entity\Hotel;
-use App\Entity\RoomsAuxerre;
+use App\Entity\RoomsNice;
 use App\Entity\RoomsParis;
+use App\Entity\BookingNice;
+use App\Entity\RoomsCannes;
+use App\Entity\BookingParis;
+use App\Entity\RoomsAuxerre;
+use App\Entity\RoomsTheoule;
+use App\Entity\BookingCannes;
+use App\Entity\RoomsChamonix;
+use App\Entity\BookingAuxerre;
+use App\Entity\BookingTheoule;
+use App\Entity\RoomsMandelieu;
+use App\Entity\BookingChamonix;
+use App\Entity\BookingMandelieu;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -33,9 +43,27 @@ class AccountController extends AbstractController
     {
         $bookingsAuxerre = $this->entityManager->getRepository(BookingAuxerre::class)->findAll();
         $roomAuxerre = $this->entityManager->getRepository(RoomsAuxerre::class)->findAll();
+        
 
         $bookingParis = $this->entityManager->getRepository(BookingParis::class)->findAll();
         $roomParis = $this->entityManager->getRepository(RoomsParis::class)->findAll();
+
+        $bookingCannes = $this->entityManager->getRepository(BookingCannes::class)->findAll();
+        $roomCannes = $this->entityManager->getRepository(RoomsCannes::class)->findAll();
+
+        $bookingChamonix = $this->entityManager->getRepository(BookingChamonix::class)->findAll();
+        $roomChamonix = $this->entityManager->getRepository(RoomsChamonix::class)->findAll();
+
+        $bookingNice = $this->entityManager->getRepository(BookingNice::class)->findAll();
+        $roomNice = $this->entityManager->getRepository(RoomsNice::class)->findAll();
+
+        $bookingMandelieu = $this->entityManager->getRepository(BookingMandelieu::class)->findAll();
+        $roomMandelieu = $this->entityManager->getRepository(RoomsMandelieu::class)->findAll();
+
+        $bookingTheoule = $this->entityManager->getRepository(BookingTheoule::class)->findAll();
+        $roomTheoule = $this->entityManager->getRepository(RoomsTheoule::class)->findAll();
+
+        $hotel = $this->entityManager->getRepository(Hotel::class)->findAll();
 
         return $this->render('account/bookings.html.twig',
     [
@@ -45,6 +73,23 @@ class AccountController extends AbstractController
 
         'bookingParis' => $bookingParis,
         'roomParis' => $roomParis,
+
+        'bookingNice' => $bookingNice,
+        'roomNice' => $roomNice,
+
+        'bookingChamonix' => $bookingChamonix,
+        'roomChamonix' => $roomChamonix,
+
+        'bookingCannes' => $bookingCannes,
+        'roomCannes' => $roomCannes,
+
+        'bookingMandelieu' => $bookingMandelieu,
+        'roomMandelieu' => $roomMandelieu,
+
+        'bookingTheoule' => $bookingTheoule,
+        'roomTheoule' => $roomTheoule,
+
+        'hotel' => $hotel,
     ]);
     }
 

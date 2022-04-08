@@ -36,9 +36,7 @@ class BookingChamonixType extends AbstractType
         
         ->add('rooms', EntityType::class, 
         [
-            'expanded' => true,
             'class' => RoomsChamonix::class,
-            'multiple' => false
         ])
 
         ->add('submit', SubmitType::class, 

@@ -4,9 +4,52 @@
 
 {% block content %}
 
+{% for hotel in hotelCannes %}
 
-<h1 class='text-center'>Réservation HYPNOS CANNES</h1>
+<div class="carousel-inner">
+    <div class="carousel-item active">
+        <img class="hotel" src="/assets/{{hotel.photoBandeau}}" alt="">
+        <div class="container">
+            <div class="carousel-caption">
+                <div class='hotel-logo-name'>
+                    <img class='logo' src="{{asset('assets/img/Logo_HYPNOS.png')}}" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-{{form(bookingCannesForm)}}
+{% endfor %}
+
+<div class="container">
+    <h1 class='text-center'>Réservation HYPNOS CANNES</h1>
+
+{% for message in app.flashes('warning') %}
+    <p class="text-center" style="color:red;">{{ message }}</p>
+{% endfor %}
+
+    {{form_start(bookingCannesForm)}}
+
+    <div class="row justify-content-center align-items-center text-center">
+            {{ form_label(bookingCannesForm.startDate)}}
+            <input class="form-control" {{form_widget(bookingCannesForm.startDate)}}
+    </div>
+
+    <div class="row justify-content-center align-items-center text-center">
+        {{ form_label(bookingCannesForm.endDate)}}
+        <input class="form-control"{{form_widget(bookingCannesForm.endDate)}}
+    </div>
+
+    <div class="row justify-content-center align-items-center text-center">
+        {{ form_label(bookingCannesForm.rooms)}}
+        <div style='width:320px'>{{form_widget(bookingCannesForm.rooms)}}</div>
+    </div>
+
+    <div class="text-center mt-4">
+        {{ form_row(bookingCannesForm.submit) }}
+    </div>
+
+    {{form_end(bookingCannesForm)}}
+</div>
 
 {% endblock %}

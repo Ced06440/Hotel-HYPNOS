@@ -36,9 +36,7 @@ class BookingNiceType extends AbstractType
         
         ->add('rooms', EntityType::class, 
         [
-            'expanded' => true,
             'class' => RoomsNice::class,
-            'multiple' => false
         ])
 
         ->add('submit', SubmitType::class, 

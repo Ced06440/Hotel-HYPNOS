@@ -4,9 +4,53 @@
 
 {% block content %}
 
+{% for hotel in hotelNice %}
 
-<h1 class='text-center'>Réservation HYPNOS NICE</h1>
+<div class="carousel-inner">
+    <div class="carousel-item active">
+        <img class="hotel" src="/assets/{{hotel.photoBandeau}}" alt="">
+        <div class="container">
+            <div class="carousel-caption">
+                <div class='hotel-logo-name'>
+                    <img class='logo' src="{{asset('assets/img/Logo_HYPNOS.png')}}" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-{{form(bookingNiceForm)}}
+{% endfor %}
+
+<div class="container">
+    <div class="text-center"><h1>Réservation HYPNOS NICE</h1></div>
+
+{% for message in app.flashes('warning') %}
+    <p class="text-center" style="color:red;">{{ message }}</p>
+{% endfor %}
+
+    {{form_start(bookingNiceForm)}}
+
+    <div class="row justify-content-center align-items-center text-center">
+            {{ form_label(bookingNiceForm.startDate)}}
+            <input class="form-control" {{form_widget(bookingNiceForm.startDate)}}
+    </div>
+
+    <div class="row justify-content-center align-items-center text-center">
+        <div class="text-bold">{{ form_label(bookingNiceForm.endDate)}}</div>
+        <input class="form-control"{{form_widget(bookingNiceForm.endDate)}}
+    </div>
+
+    <div class="row justify-content-center align-items-center text-center">
+        {{ form_label(bookingNiceForm.rooms)}}
+        <div style='width:320px'>{{form_widget(bookingNiceForm.rooms)}}</div>
+    </div>
+
+    <div class="text-center mt-4">
+        {{ form_row(bookingNiceForm.submit) }}
+    </div>
+
+    {{form_end(bookingNiceForm)}}
+</div>
+
 
 {% endblock %}

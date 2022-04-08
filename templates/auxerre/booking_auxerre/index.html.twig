@@ -4,11 +4,28 @@
 
 {% block content %}
 
+{% for hotel in hotelAuxerre %}
+
+<div class="carousel-inner">
+    <div class="carousel-item active">
+        <img class="hotel" src="/assets/{{hotel.photoBandeau}}" alt="">
+        <div class="container">
+            <div class="carousel-caption">
+                <div class='hotel-logo-name'>
+                    <img class='logo' src="{{asset('assets/img/Logo_HYPNOS.png')}}" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endfor %}
+
 <div class="container">
     <div class="text-center"><h1>Réservation HYPNOS AUXERRE</h1></div>
 
-{% for message in app.flashes('success') %}
-    <p>{{ message }}</p>
+{% for message in app.flashes('warning') %}
+    <p class="text-center" style="color:red;">{{ message }}</p>
 {% endfor %}
 
     {{form_start(bookingAuxerreForm)}}
@@ -19,13 +36,13 @@
     </div>
 
     <div class="row justify-content-center align-items-center text-center">
-        {{ form_label(bookingAuxerreForm.endDate)}}
+        <div class="text-bold">{{ form_label(bookingAuxerreForm.endDate)}}</div>
         <input class="form-control"{{form_widget(bookingAuxerreForm.endDate)}}
     </div>
 
     <div class="row justify-content-center align-items-center text-center">
         {{ form_label(bookingAuxerreForm.rooms)}}
-        {{form_widget(bookingAuxerreForm.rooms)}}
+        <div style='width:320px'>{{form_widget(bookingAuxerreForm.rooms)}}</div>
     </div>
 
     <div class="text-center mt-4">

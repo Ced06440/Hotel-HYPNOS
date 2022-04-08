@@ -17,6 +17,7 @@ use App\Entity\BookingTheoule;
 use App\Entity\RoomsMandelieu;
 use App\Entity\BookingChamonix;
 use App\Entity\BookingMandelieu;
+use App\Entity\Contact;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -65,6 +66,8 @@ class AccountController extends AbstractController
 
         $hotel = $this->entityManager->getRepository(Hotel::class)->findAll();
 
+        
+
         return $this->render('account/bookings.html.twig',
     [
         
@@ -90,6 +93,7 @@ class AccountController extends AbstractController
         'roomTheoule' => $roomTheoule,
 
         'hotel' => $hotel,
+
     ]);
     }
 

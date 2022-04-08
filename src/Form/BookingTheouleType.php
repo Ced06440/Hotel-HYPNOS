@@ -36,9 +36,7 @@ class BookingTheouleType extends AbstractType
         
         ->add('rooms', EntityType::class, 
         [
-            'expanded' => true,
             'class' => RoomsTheoule::class,
-            'multiple' => false
         ])
 
         ->add('submit', SubmitType::class, 

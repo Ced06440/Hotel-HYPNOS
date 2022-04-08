@@ -54,6 +54,7 @@ class BookingChamonixController extends AbstractController
                     ( $room->getStartDate() >= $startDate && $room->getStartDate() <= $endDate )
                     )
                 ) {
+                    $this->addFlash('warning', 'Les dates que vous avez choisies sont déjà prise, pour cette chambre.');
                     return $this->redirectToRoute('chamonix/app_booking_chamonix') ;  
             }
         }

@@ -38,9 +38,7 @@ class BookingAuxerreType extends AbstractType
             
             ->add('rooms', EntityType::class, 
             [
-                'expanded' => true,
                 'class' => RoomsAuxerre::class,
-                'multiple' => false
             ])
 
             ->add('submit', SubmitType::class, 

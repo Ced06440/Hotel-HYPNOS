@@ -55,6 +55,7 @@ class BookingParisController extends AbstractController
                     ( $room->getStartDate() >= $startDate && $room->getStartDate() <= $endDate )
                     )
                 ) {
+                    $this->addFlash('warning', 'Les dates que vous avez choisies sont déjà prise, pour cette chambre');
                     return $this->redirectToRoute('paris/app_booking_paris') ;  
             }
         }

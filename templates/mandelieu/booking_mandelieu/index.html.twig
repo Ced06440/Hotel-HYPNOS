@@ -4,9 +4,52 @@
 
 {% block content %}
 
+{% for hotel in hotelMandelieu %}
 
-<h1 class='text-center'>Réservation HYPNOS MANDELIEU</h1>
+<div class="carousel-inner">
+    <div class="carousel-item active">
+        <img class="hotel" src="/assets/{{hotel.photoBandeau}}" alt="">
+        <div class="container">
+            <div class="carousel-caption">
+                <div class='hotel-logo-name'>
+                    <img class='logo' src="{{asset('assets/img/Logo_HYPNOS.png')}}" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-{{form(bookingMandelieuForm)}}
+{% endfor %}
+
+<div class="container">
+    <div class="text-center"><h1>Réservation HYPNOS MANDELIEU</h1></div>
+
+{% for message in app.flashes('warning') %}
+    <p class="text-center" style="color:red;">{{ message }}</p>
+{% endfor %}
+
+    {{form_start(bookingMandelieuForm)}}
+
+    <div class="row justify-content-center align-items-center text-center">
+            {{ form_label(bookingMandelieuForm.startDate)}}
+            <input class="form-control" {{form_widget(bookingMandelieuForm.startDate)}}
+    </div>
+
+    <div class="row justify-content-center align-items-center text-center">
+        <div class="text-bold">{{ form_label(bookingMandelieuForm.endDate)}}</div>
+        <input class="form-control"{{form_widget(bookingMandelieuForm.endDate)}}
+    </div>
+
+    <div class="row justify-content-center align-items-center text-center">
+        {{ form_label(bookingMandelieuForm.rooms)}}
+        <div style='width:320px'>{{form_widget(bookingMandelieuForm.rooms)}}</div>
+    </div>
+
+    <div class="text-center mt-4">
+        {{ form_row(bookingMandelieuForm.submit) }}
+    </div>
+
+    {{form_end(bookingMandelieuForm)}}
+</div>
 
 {% endblock %}

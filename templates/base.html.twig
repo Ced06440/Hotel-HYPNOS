@@ -43,24 +43,30 @@
 	<body>
 		<header>
 			<nav class="navbar navbar-expand-md fixed-top">
-				
+
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
+					<span class="navbar-toggler-icon">
+						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-water" viewBox="0 0 16 16">
+  							<path d="M.036 3.314a.5.5 0 0 1 .65-.278l1.757.703a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.757-.703a.5.5 0 1 1 .372.928l-1.758.703a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0L.314 3.964a.5.5 0 0 1-.278-.65zm0 3a.5.5 0 0 1 .65-.278l1.757.703a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.757-.703a.5.5 0 1 1 .372.928l-1.758.703a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0L.314 6.964a.5.5 0 0 1-.278-.65zm0 3a.5.5 0 0 1 .65-.278l1.757.703a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.757-.703a.5.5 0 1 1 .372.928l-1.758.703a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0L.314 9.964a.5.5 0 0 1-.278-.65zm0 3a.5.5 0 0 1 .65-.278l1.757.703a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.757-.703a.5.5 0 1 1 .372.928l-1.758.703a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0l-1.757-.703a.5.5 0 0 1-.278-.65z"/>
+						</svg>
+					</span>
 				</button>
+
 				<div class="collapse navbar-collapse" id="navbarCollapse">
-					<ul class="navbar-nav mr-auto">
+					<ul class="navbar-nav ">
 						<li class="nav-item active">
-							<a class="nav-link" href="{{path('app_home')}}">Accueil</a>
+							<a class="navbar-brand" href="{{path('app_home')}}"><img class="img-fluid" src="{{asset('assets/img/Logo_HYPNOS.png')}}" alt="" width="50px"></a>
 						</li>
 						<li class="nav-item active">
-							<a class="nav-link" href="{{path('app_groupe')}}">Le groupe</a>
+							<a class="nav-link" href="{{path('app_home')}}">Accueil</a>
 						</li>
 						<li class="nav-item active">
 							<a class="nav-link" href="{{path('app_etablissement')}}">Etablissements</a>
 						</li>
 						<li class="nav-item active">
-							<a class="navbar-brand" href="{{path('app_home')}}"><img class="img-fluid" src="{{asset('assets/img/Logo_HYPNOS.png')}}" alt="" width="50px"></a>
+							<a class="nav-link" href=" {{path('app_contact')}} ">Contact</a>
 						</li>
+						
 						{% if app.user %}
 						<li class="nav-item active">
 							<a class="nav-link" href=" {{path('app_account')}} ">Mon compte</a>
@@ -77,8 +83,9 @@
 						</li>
 						{% endif %}
 						<li class="nav-item active">
-							<a class="nav-link" href="">Contact</a>
+							<a class="navbar-brand" href="{{path('app_home')}}"><img class="img-fluid" src="{{asset('assets/img/Logo_HYPNOS.png')}}" alt="" width="50px"></a>
 						</li>
+						
 					</ul>
 				</div>
 			</nav>
@@ -121,6 +128,7 @@
 								<div class="carousel-caption">
 									<div class='hotel-logo-name'>
 										<div><img class='logo' src="{{asset('assets/img/Logo_HYPNOS.png')}}" alt=""></div>
+										<div><h1>Cannes</h1></div>
 										<a class="btn btn-primary text-center" href="{{path('app_cannes')}}">Réservez votre séjour dans cet hotel</a>
 									</div>								
 								</div>
@@ -133,6 +141,7 @@
 								<div class="carousel-caption">
 									<div class='hotel-logo-name'>
 										<div><img class='logo' src="{{asset('assets/img/Logo_HYPNOS.png')}}" alt=""></div>
+										<div><h1>Chamonix</h1></div>
 										<a class="btn btn-primary text-center" href="{{path('app_chamonix')}}">Réservez votre séjour dans cet hotel</a>
 									</div>
 								</div>									
@@ -145,6 +154,7 @@
 								<div class="carousel-caption">
 									<div class='hotel-logo-name'>
 										<div><img class='logo' src="{{asset('assets/img/Logo_HYPNOS.png')}}" alt=""></div>
+										<div><h1>Auxerre</h1></div>
 										<a class="btn btn-primary text-center" href="{{path('app_auxerre')}}">Réservez votre séjour dans cet hotel</a>
 									</div>
 								</div>								
@@ -157,6 +167,7 @@
 								<div class="carousel-caption">
 									<div class='hotel-logo-name'>
 										<div><img class='logo' src="{{asset('assets/img/Logo_HYPNOS.png')}}" alt=""></div>
+										<div><h1>Théoule</h1></div>
 										<a class="btn btn-primary text-center" href="{{path('app_theoule')}}">Réservez votre séjour dans cet hotel</a>
 									</div>	
 								</div>						
@@ -170,6 +181,7 @@
 									<div class="carousel-caption">
 										<div class='hotel-logo-name'>
 											<div><img class='logo' src="{{asset('assets/img/Logo_HYPNOS.png')}}" alt=""></div>
+											<div><h1>Nice</h1></div>
 											<a class="btn btn-primary text-center" href="{{path('app_nice')}}">Réservez votre séjour dans cet hotel</a>
 										</div>
 									</div>									
@@ -183,6 +195,7 @@
 								<div class="carousel-caption">
 									<div class='hotel-logo-name'>
 										<div><img class='logo' src="{{asset('assets/img/Logo_HYPNOS.png')}}" alt=""></div>
+										<div><h1>Mandelieu</h1></div>
 										<a class="btn btn-primary text-center" href="{{path('app_mandelieu')}}">Réservez votre séjour dans cet hotel</a>
 									</div>
 								</div>

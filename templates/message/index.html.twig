@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MessageController!{% endblock %}
+
+{% block content %}
+
+{{ dump(message) }}
+
+<div>
+    <h1>Message des clients</h1>
+
+     <table class="table">
+        <thead>
+            <tr>
+            <th scope="col">#</th>
+            <th scope="col">Prénom</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Téléphone</th>
+            <th scope="col">Adresse mail</th>
+            <th scope="col">Catégorie du message</th>
+            <th scope="col">Message</th>
+            </tr>
+        </thead>
+        
+        {% for message in message %}
+            
+        <tbody>
+            <tr>
+                <th scope="row">{{message.id}}</th>
+                <td>{{message.firstname}}</td>
+                <td>{{message.lastname}}</td>
+                <td>{{message.phoneNumber}}</td>
+                <td>{{message.email}}</td>
+                <td>{{message.selection}}</td>
+                <td>{{message.message}}</td>
+                <td><a href="{{path('app_account_delete_message', {'id' : message.id } )}}">Supprimer le message</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+
+{% endblock %}

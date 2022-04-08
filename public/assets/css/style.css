@@ -9,12 +9,8 @@ body{
     font-weight: bold;
 }
 
-nav{
-    background-color: #D0D3D4;
-}
-
 .nav-link{
-    color: #00B2A9;
+    color : #00b2a9;
     font-weight:700;
 }
 
@@ -45,4 +41,8 @@ img.hotel{
 
 .form-control{
     width: 300px;
+}
+
+.hotel-name{
+    color: #00b2a9;
 }

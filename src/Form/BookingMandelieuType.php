@@ -36,9 +36,7 @@ class BookingMandelieuType extends AbstractType
         
         ->add('rooms', EntityType::class, 
         [
-            'expanded' => true,
             'class' => RoomsMandelieu::class,
-            'multiple' => false
         ])
 
         ->add('submit', SubmitType::class, 

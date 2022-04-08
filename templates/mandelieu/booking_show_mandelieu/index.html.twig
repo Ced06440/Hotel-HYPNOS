@@ -3,12 +3,13 @@
 {% block title %}Reservation{% endblock %}
 
 {% block content %}
-
+<div class="text-center">
 	<h1>Ma réservation</h1>
+</div>
 
 <div class="container">
 <img src="" alt="">
-	<div class="row">
+	<div class="row align-item text-center">
 		<div>Votre commande n°{{booking.id}}, a bien etait prise en compte</div>
 		<div>Vous avez réservé du {{booking.startDate | date('d/m/Y')}}, au {{booking.endDate | date('d/m/Y')}}. </div>
 		<div>Pour la chambre {{booking.rooms.name}}, au prix de {{(booking.rooms.price / 100) | number_format(2, ',' , '.' )}}€ la nuit.</div>

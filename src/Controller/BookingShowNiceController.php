@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Users;
 use App\Entity\RoomsNice;
 use App\Entity\BookingNice;
 use Doctrine\ORM\EntityManagerInterface;

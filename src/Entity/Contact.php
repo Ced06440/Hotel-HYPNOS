@@ -110,10 +110,10 @@ class Contact
 
     public function delete ($id)
     {
-        $contact = $this->session->get('Contact');
+        $contact = $this->session->get('contact');
 
         unset($contact,$id);
 
-        return $this->session->set('Contact', $contact);
+        return $this->session->set('contact', $contact);
     }
 }

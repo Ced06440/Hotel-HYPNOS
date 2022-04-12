@@ -7,7 +7,6 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Mime\Message;
 
 class MessageController extends AbstractController
 {
@@ -28,13 +27,13 @@ class MessageController extends AbstractController
         ]);
     }
 
-    #[Route('/compte/delete/message{id}', name: 'app_account_delete_message')]
+    #[Route('/compte/delete/contact{id}', name: 'app_account_delete_contact')]
 
-    public function delete (Message $message)
+    public function delete (Contact $contact)
     {
-        $deleteMessage = $this->entityManager;
-        $deleteMessage->remove($message);
-        $deleteMessage->flush();
+        $deleteContact = $this->entityManager;
+        $deleteContact->remove($contact);
+        $deleteContact->flush();
 
         return $this->render('message/index.html.twig');
     }

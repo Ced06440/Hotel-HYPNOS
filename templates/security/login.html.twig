@@ -5,7 +5,7 @@
 {% block content %}
 
 {% for message in app.flashes('success') %}
-    <div class="alert alert-sucess text-center">
+    <div "text-center" style="color:green;">
         <p>{{ message }}</p>
     </div>
 {% endfor %}

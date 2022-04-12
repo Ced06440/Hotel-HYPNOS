@@ -5,46 +5,67 @@
 {% block content %}
 
 <div class="container">
-    <div class="text-center"><h1>Inscription à nos hôtels</h1></div>
+
+    <div class="row text-center">
+        <h1>Formulaire de contact</h1>
+    </div>
 
 {% for message in app.flashes('success') %}
-    <p>{{ message }}</p>
+    <p class="text-center" style="color:green;">{{ message }}</p>
 {% endfor %}
 
     {{form_start(contactForm)}}
+    <div class="row justify-content-right text-center">
 
-    <div class="row justify-content-center align-items-center text-center">
-            {{ form_label(contactForm.firstname)}}
-            <input class="form-control" {{form_widget(contactForm.firstname)}}
-    </div>
+        <div class="col-xl-8">
+            <div class="row">
+                <div class="col-xl-4 m-3">
+                        {{ form_label(contactForm.firstname) }}
+                        {{ form_widget(contactForm.firstname) }}
+                </div>
 
-    <div class="row justify-content-center align-items-center text-center">
-        {{ form_label(contactForm.lastname)}}
-        <input class="form-control"{{form_widget(contactForm.lastname)}}
-    </div>
+                <div class="col-xl-4 m-3">
+                    {{ form_label(contactForm.lastname) }}
+                    {{ form_widget(contactForm.lastname) }}
+                </div>
+            </div>
 
-    <div class="row justify-content-center align-items-center text-center">
-        {{ form_label(contactForm.email)}}
-        <input class="form-control"{{form_widget(contactForm.email)}}
-    </div>
+            <div class="row">
+                <div class="col-xl-4 m-3">
+                    {{ form_label(contactForm.email) }}
+                    {{ form_widget(contactForm.email) }}
+                </div>
 
-    <div class="row justify-content-center align-items-center text-center">
-        {{ form_label(contactForm.phoneNumber)}}
-        <input class="form-control"{{form_widget(contactForm.phoneNumber)}}
-    </div>
+                <div class="col-xl-4 m-3">
+                    {{ form_label(contactForm.phoneNumber) }}
+                    {{ form_widget(contactForm.phoneNumber) }}
+                </div>
+            </div>
 
-    <div class="row justify-content-center align-items-center text-center">
-        {{ form_label(contactForm.selection)}}
-        <div style='width:320px'>{{form_widget(contactForm.selection)}}</div>
-    </div>
+            <div class="col-xl-8 m-3" >
+                {{ form_label(contactForm.selection) }}
+                {{ form_widget(contactForm.selection) }}
+            </div>
 
-    <div class="row justify-content-center align-items-center text-center">
-        {{ form_label(contactForm.message)}}
-        <div style='width:320px'>{{form_widget(contactForm.message)}}</div>
-    </div>
+            <div class="col-xl-8 m-3">
+                {{ form_label(contactForm.message) }}
+                {{ form_widget(contactForm.message) }}
+            </div>
 
-    <div class="text-center mt-4">
-        {{ form_row(contactForm.submit) }}
+            <div class="col-xl-8 mt-4">
+                {{ form_row(contactForm.submit) }}
+            </div>
+        </div>
+
+        <div class="col-xl-4 d-flex justify-content-center align-items-center">
+            <h2>Contact Groupe Hôtel HYPNOS</h2>
+            <div>
+                <p>45 promenades des Anglais</p>
+                <p>06000 NICE</p>
+            <hr>
+                <p>Téléphone : 04.93.93.93.93</p>
+            </div>
+        </div>
     </div>
 
     {{form_end(contactForm)}}

@@ -1,7 +1,14 @@
 
 body{
     font-family: 'Signika', sans-serif;
-    margin: 30px;   
+    /*background-image: linear-gradient(to right bottom, #d0d3d4, #adcbd1, #85c3c9, #57bbbc, #00b2a9);/*  
+    /*background-image: linear-gradient(to right bottom, #d0d3d4, #9ca2a5, #6c737a, #414750, #1c1f2a);*/
+    /*background-image: linear-gradient(to right bottom, #00b2a9, #008a99, #17637b, #253e54, #1c1f2a);*/
+    /*background-image: radial-gradient(circle, #1c1f2a, #253e54, #17637b, #008a99, #00b2a9);*/
+    /*background-image: linear-gradient(to right, #d0d3d4, #a9aeb1, #838a8f, #61686f, #414750, #394451, #304153, #253e54, #1d5972, #00768c, #00949f, #00b2a9);*/
+    /*background-image: linear-gradient(to bottom, #d0d3d4, #9ca2a5, #6c737a, #414750, #1c1f2a);*/
+    background-color: #D0D3D4;
+    color : #1c1f2a;
 }
 
 .carousel-caption{
@@ -33,9 +40,12 @@ img.hotel{
     font-weight: bold;
 }
 
+nav{
+    background-color: #D0D3D4;
+}
+
 .navbar-nav{
     text-align: center;
-    margin-left: 580px;
     align-items: center;
 }
 
@@ -46,3 +56,16 @@ img.hotel{
 .hotel-name{
     color: #00b2a9;
 }
+
+.img-bandeau{
+    width: 600px;
+    height: 350px;
+}
+
+@media (min-width: 320px) {
+    .img-bandeau{
+        width: 320px;
+        height: 170px;
+    }
+}
+

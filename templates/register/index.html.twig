@@ -8,7 +8,7 @@
     <div class="text-center"><h1>Inscription à nos hôtels</h1></div>
 
 {% for message in app.flashes('success') %}
-    <p>{{ message }}</p>
+    <p "text-center" style="color:green;">{{ message }}</p>
 {% endfor %}
 
     {{form_start(form)}}

@@ -35,4 +35,6 @@ obligatoirement sur place.
 
 Vous pouvez retrouver mon projet a l'adresse suivante : https://ecf-bernier-hypnos.fr/
 
-J'ai tout réalisé sur l'IDE Visual Studio Code, avec le framework SYMFONY et BOOTSTRAP.
+Pour tous les logins des managers d'établissement et de l'administrateur vous pouvez les retrouver dans le fichier modéles copie.
+
+J'ai tout réalisé sur l'IDE Visual Studio Code, avec le framework SYMFONY 6.0.0 et BOOTSTRAP 5.1.3.

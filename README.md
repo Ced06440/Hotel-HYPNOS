@@ -1,6 +1,6 @@
 # Hotel-HYPNOS
 
-Dans le cadre de mon ECF pour le titre professionnel Développeur Web et Web Mobile, il m'a était demandé comme objectif de faire toutes les étapes de conception d'une application web compléte.
+Dans le cadre de mon ECF pour le titre professionnel Développeur Web et Web Mobile, il m'a était demandé comme objectif de faire toutes les étapes de conception d'une application web complète.
 
 Développer une partie FRONT-END :
 
@@ -28,7 +28,7 @@ Hypnos souhaiterait ne pas dépendre uniquement de sites tiers comme Booking.com
 location de ses chambres. C’est pourquoi le groupe hôtelier aimerait être pourvu de son
 propre système de réservation sur un nouveau site web.
 
-Information importante : Le paiement n'est pas une fonctionnalité à envisager, car il se fait
+Information importante : le paiement n'est pas une fonctionnalité à envisager, car il se fait
 obligatoirement sur place. 
  
                                    *************************** MON PROJET ***************************
